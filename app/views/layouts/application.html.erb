@@ -40,10 +40,30 @@
     </div>
     
     <div>
-      <a href="/recipes">
+      <a href="/my_recipes">
         My Recipes
       </a>
     </div>
+    
+    <% if current_user.blank? %>
+        <div>
+          <a href="/users/sign_up">
+            Sign up
+          </a>
+        </div>
+      <% else %>
+        <div>
+          <a href="/users/edit">
+            Edit profile
+          </a>
+        </div>
+
+        <div>
+          <a href="/users/sign_out" data-method="delete">
+            Sign out
+          </a>
+        </div>
+      <% end %>
   
   </head>
 
@@ -55,3 +75,4 @@
     
   </body>
 </html>
+

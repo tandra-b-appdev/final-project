@@ -4,6 +4,15 @@ class RecipesController < ApplicationController
 
     render("recipe_templates/list.html.erb")
   end
+  
+  def my_list
+    @recipes = Recipe.all
+    if current_user.blank?
+      redirect_to("/users/sign_in")
+    else
+      render("recipe_templates/my_list.html.erb")
+    end
+  end
 
   def details
     @recipe = Recipe.where({ :id => params.fetch("id_to_display") }).first

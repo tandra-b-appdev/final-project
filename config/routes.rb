@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
+  
+  match("/", { :controller => "recipes", :action => "list", :via => "get" })
+  match("/my_recipes", { :controller => "recipes", :action => "my_list", :via => "get" })
   # Routes for the Item resource:
 
   # CREATE

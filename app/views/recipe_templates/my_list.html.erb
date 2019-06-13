@@ -1,6 +1,10 @@
 <h1>
-  All Recipes
+  My Recipes
 </h1>
+
+<a href="/new_recipe_form">
+  Add a new recipe
+</a>
 
 <hr>
 
@@ -15,7 +19,6 @@
       Source website
     </th>
 
-
     <th>
       Created at
     </th>
@@ -24,9 +27,13 @@
       Updated at
     </th>
 
+    <th>
+    </th>
   </tr>
 
   <% @recipes.each do |recipe| %>
+  
+  <% if current_user.id = recipe.user_id %>
   <tr>
    
     <td>
@@ -45,6 +52,12 @@
       <%= time_ago_in_words(recipe.updated_at) %> ago
     </td>
 
+    <td>
+      <a href="/recipes/<%= recipe.id %>">
+        Show details
+      </a>
+    </td>
   </tr>
+  <% end %>
   <% end %>
 </table>
