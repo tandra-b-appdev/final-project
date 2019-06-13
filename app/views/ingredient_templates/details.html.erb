@@ -1,0 +1,54 @@
+<h1>
+  Ingredient #<%= @ingredient.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/ingredients">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_ingredient_form/<%= @ingredient.id %>">
+      Edit ingredient
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_ingredient/<%= @ingredient.id %>">
+      Delete ingredient
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Name
+  </dt>
+  <dd>
+    <%= @ingredient.name %>
+  </dd>
+
+  <dt>
+    Category
+  </dt>
+  <dd>
+    <%= @ingredient.category_id %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@ingredient.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@ingredient.updated_at) %> ago
+  </dd>
+</dl>
+

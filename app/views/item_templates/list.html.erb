@@ -1,0 +1,90 @@
+<h1>
+  Item list
+</h1>
+
+<a href="/new_item_form">
+  Add a new item
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Essential flag
+    </th>
+
+    <th>
+      Quantity
+    </th>
+
+    <th>
+      Measurement units
+    </th>
+
+    <th>
+      Recipe
+    </th>
+
+    <th>
+      Ingredient
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @items.each do |item| %>
+  <tr>
+    <td>
+      <%= item.id %>
+    </td>
+
+    <td>
+      <%= item.essential_flag %>
+    </td>
+
+    <td>
+      <%= item.quantity %>
+    </td>
+
+    <td>
+      <%= item.measurement_units %>
+    </td>
+
+    <td>
+      <%= item.recipe_id %>
+    </td>
+
+    <td>
+      <%= item.ingredient_id %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(item.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(item.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/items/<%= item.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

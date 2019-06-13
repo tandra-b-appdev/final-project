@@ -1,0 +1,43 @@
+<h1>
+  Add a new recipe
+</h1>
+
+<hr>
+
+<%= render("recipe_templates/validation_failures.html.erb") %>
+
+<form action="/insert_recipe_record" method="post">
+  <div>
+    <label for="source_website">
+      Source website
+    </label>
+
+    <input type="text" id="source_website" name="source_website" value="<%= @recipe.source_website %>">
+  </div>
+
+  <div>
+    <label for="name">
+      Name
+    </label>
+
+    <input type="text" id="name" name="name" value="<%= @recipe.name %>">
+  </div>
+
+  <div>
+    <label for="user_id">
+      User
+    </label>
+
+    <input type="text" id="user_id" name="user_id" value="<%= @recipe.user_id %>">
+  </div>
+
+  <button>
+    Create recipe
+  </button>
+</form>
+
+<hr>
+
+<a href="/recipes">
+  Go back
+</a>

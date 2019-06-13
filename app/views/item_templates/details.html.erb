@@ -1,0 +1,75 @@
+<h1>
+  Item #<%= @item.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/items">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_item_form/<%= @item.id %>">
+      Edit item
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_item/<%= @item.id %>">
+      Delete item
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Essential flag
+  </dt>
+  <dd>
+    <%= @item.essential_flag %>
+  </dd>
+
+  <dt>
+    Quantity
+  </dt>
+  <dd>
+    <%= @item.quantity %>
+  </dd>
+
+  <dt>
+    Measurement units
+  </dt>
+  <dd>
+    <%= @item.measurement_units %>
+  </dd>
+
+  <dt>
+    Recipe
+  </dt>
+  <dd>
+    <%= @item.recipe_id %>
+  </dd>
+
+  <dt>
+    Ingredient
+  </dt>
+  <dd>
+    <%= @item.ingredient_id %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@item.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@item.updated_at) %> ago
+  </dd>
+</dl>
+

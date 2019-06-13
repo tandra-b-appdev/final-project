@@ -1,0 +1,58 @@
+<h1>
+  Add a new item
+</h1>
+
+<hr>
+
+<%= render("item_templates/validation_failures.html.erb") %>
+
+<form action="/insert_item_record" method="post">
+  <div>
+    <input id="essential_flag" name="essential_flag" type="checkbox" <%= "checked" if @item.essential_flag %>>
+    <label for="essential_flag">
+      Essential flag
+    </label>
+  </div>
+
+  <div>
+    <label for="quantity">
+      Quantity
+    </label>
+
+    <input type="text" id="quantity" name="quantity" value="<%= @item.quantity %>">
+  </div>
+
+  <div>
+    <label for="measurement_units">
+      Measurement units
+    </label>
+
+    <input type="text" id="measurement_units" name="measurement_units" value="<%= @item.measurement_units %>">
+  </div>
+
+  <div>
+    <label for="recipe_id">
+      Recipe
+    </label>
+
+    <input type="text" id="recipe_id" name="recipe_id" value="<%= @item.recipe_id %>">
+  </div>
+
+  <div>
+    <label for="ingredient_id">
+      Ingredient
+    </label>
+
+    <input type="text" id="ingredient_id" name="ingredient_id" value="<%= @item.ingredient_id %>">
+  </div>
+
+  <button>
+    Create item
+  </button>
+</form>
+
+<hr>
+
+<a href="/items">
+  Go back
+</a>
