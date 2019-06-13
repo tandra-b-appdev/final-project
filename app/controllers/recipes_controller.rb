@@ -44,7 +44,7 @@ class RecipesController < ApplicationController
 
     @recipe.source_website = params.fetch("source_website")
     @recipe.name = params.fetch("name")
-    @recipe.user_id = params.fetch("user_id")
+    @recipe.image = params.fetch("image")
 
     if @recipe.valid?
       @recipe.save

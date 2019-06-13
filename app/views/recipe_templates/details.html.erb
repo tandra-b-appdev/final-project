@@ -27,7 +27,7 @@
     Source website
   </dt>
   <dd>
-    <%= @recipe.source_website %>
+    <a href= "<%= @recipe.source_website %>"><%= @recipe.source_website %></a>
   </dd>
 
   <dt>
@@ -38,10 +38,10 @@
   </dd>
 
   <dt>
-    User
+    Image
   </dt>
   <dd>
-    <%= @recipe.user_id %>
+    <img src="<%= @recipe.image %>">
   </dd>
 
   <dt>

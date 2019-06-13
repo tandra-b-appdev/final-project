@@ -10,21 +10,15 @@
 
 <table>
   <tr>
+ 
     <th>
-      ID
+      Name
     </th>
 
     <th>
       Source website
     </th>
 
-    <th>
-      Name
-    </th>
-
-    <th>
-      User
-    </th>
 
     <th>
       Created at
@@ -40,22 +34,15 @@
 
   <% @recipes.each do |recipe| %>
   <tr>
-    <td>
-      <%= recipe.id %>
-    </td>
-
-    <td>
-      <%= recipe.source_website %>
-    </td>
-
+   
     <td>
       <%= recipe.name %>
     </td>
 
     <td>
-      <%= recipe.user_id %>
+      <a href= "<%= recipe.source_website %>"><%= recipe.source_website %></a>
     </td>
-
+   
     <td>
       <%= time_ago_in_words(recipe.created_at) %> ago
     </td>
