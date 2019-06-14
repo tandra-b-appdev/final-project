@@ -33,7 +33,7 @@
 
   <% @recipes.each do |recipe| %>
   
-  <% if current_user.id = recipe.user_id %>
+  <% if current_user.id == recipe.user_id %>
   <tr>
    
     <td>
