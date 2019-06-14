@@ -3,7 +3,7 @@
 # Table name: items
 #
 #  id                :integer          not null, primary key
-#  essential_flag    :boolean
+#  essential_flag    :string
 #  quantity          :float
 #  measurement_units :string
 #  recipe_id         :integer

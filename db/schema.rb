@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190613030149) do
+ActiveRecord::Schema.define(version: 20190614230713) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20190613030149) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.boolean "essential_flag"
+    t.string "essential_flag"
     t.float "quantity"
     t.string "measurement_units"
     t.integer "recipe_id"

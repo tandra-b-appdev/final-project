@@ -1,13 +1,8 @@
 <h1>
-  Recipe #<%= @recipe.id %> details
+  <%= @recipe.name %>
 </h1>
 
 <div>
-  <div>
-    <a href="/recipes">
-      Go back
-    </a>
-  </div>
 
   <div>
     <a href="/existing_recipe_form/<%= @recipe.id %>">
@@ -31,13 +26,6 @@
   </dd>
 
   <dt>
-    Name
-  </dt>
-  <dd>
-    <%= @recipe.name %>
-  </dd>
-
-  <dt>
     Image
   </dt>
   <dd>
@@ -57,5 +45,29 @@
   <dd>
     <%= time_ago_in_words(@recipe.updated_at) %> ago
   </dd>
+
+<h3>Items needed</h3>
+
+<table>
+    
+    <tr>
+        <th>Ingredient</th>
+        <th>Essential?</th>
+        <th>Quantity</th>
+        <th>Measurement Units</th>
+    </tr>
+    
+    <% items = Item.where({:recipe_id => @recipe.id}) %>
+    <% items.count.times do |i|%>
+    <tr>
+        <td><%= Ingredient.where({:id => items.at(i).ingredient_id}).pluck(:name).first %></td>
+        <td><%= items.at(i).essential_flag %></td>
+        <td><%= items.at(i).quantity %></td>
+        <td><%= items.at(i).measurement_units %></td>
+    </tr>
+    <% end %>
+
+</table>
+  
 </dl>
 
