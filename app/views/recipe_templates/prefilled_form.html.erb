@@ -1,5 +1,5 @@
 <h1>
-  Edit recipe #<%= @recipe.id %>
+  Edit recipe :<%= @recipe.name %>
 </h1>
 
 <hr>
@@ -29,6 +29,39 @@
     </label>
 
     <input type="text" id="image" name="image" value="<%= @recipe.image %>">
+  </div>
+
+  <div>
+    <label for="items">
+      Items
+    </label>
+      <table>
+    
+        <tr>
+          <th>Ingredient</th>
+          <th>Essential?</th>
+          <th>Quantity</th>
+          <th>Measurement Units</th>
+          <th></th>
+        </tr>
+    
+        <% items = Item.where({:recipe_id => @recipe.id}) %>
+        <% items.count.times do |i|%>
+        <tr>
+          <td><%= Ingredient.where({:id => items.at(i).ingredient_id}).pluck(:name).first %></td>
+          <td><%= items.at(i).essential_flag %></td>
+          <td><%= items.at(i).quantity %></td>
+          <td><%= items.at(i).measurement_units %></td>
+          <td><a href ="/delete_item/<%=items.at(i).id %>">Delete item</a></td>
+        </tr>
+        <% end %>
+
+      </table>
+  
+  <a href="/new_item_form/<%=@recipe.id%>">
+    Add item
+  </a>
+  
   </div>
 
   <button>

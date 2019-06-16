@@ -13,7 +13,9 @@ class ItemsController < ApplicationController
 
   def blank_form
     @item = Item.new
-
+    @ingredients = Ingredient.all.order({:name => :asc})
+    @measurement_units = Item.pluck(:measurement_units).uniq
+    @recipe_name = Recipe.where({:id => @recipe_id}).pluck(:name).first
     render("item_templates/blank_form.html.erb")
   end
 
@@ -61,9 +63,9 @@ class ItemsController < ApplicationController
 
   def remove_row
     @item = Item.where({ :id => params.fetch("id_to_remove") }).first
-
+    @recipe = Item.where({ :id => params.fetch("id_to_remove") }).pluck(:recipe_id)
     @item.destroy
 
-    redirect_to("/items", { :notice => "Item deleted successfully." })
+    redirect_to("/existing_recipe_form/"+@recipe.to_s, { :notice => "Item deleted successfully." })
   end
 end

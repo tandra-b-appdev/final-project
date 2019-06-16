@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   # Routes for the Item resource:
 
   # CREATE
-  match("/new_item_form", { :controller => "items", :action => "blank_form", :via => "get" })
+  match("/new_item_form/:recipe_id", { :controller => "items", :action => "blank_form", :via => "get" })
   match("/insert_item_record", { :controller => "items", :action => "save_new_info", :via => "post" })
 
   # READ
-  match("/items", { :controller => "items", :action => "list", :via => "get" })
-  match("/items/:id_to_display", { :controller => "items", :action => "details", :via => "get" })
+  #match("/items", { :controller => "items", :action => "list", :via => "get" })
+  #match("/items/:id_to_display", { :controller => "items", :action => "details", :via => "get" })
 
   # UPDATE
   match("/existing_item_form/:id_to_prefill", { :controller => "items", :action => "prefilled_form", :via => "get" })
@@ -25,38 +25,38 @@ Rails.application.routes.draw do
   # Routes for the Category resource:
 
   # CREATE
-  match("/new_category_form", { :controller => "categories", :action => "blank_form", :via => "get" })
-  match("/insert_category_record", { :controller => "categories", :action => "save_new_info", :via => "post" })
+  #match("/new_category_form", { :controller => "categories", :action => "blank_form", :via => "get" })
+  #match("/insert_category_record", { :controller => "categories", :action => "save_new_info", :via => "post" })
 
   # READ
-  match("/categories", { :controller => "categories", :action => "list", :via => "get" })
-  match("/categories/:id_to_display", { :controller => "categories", :action => "details", :via => "get" })
+  #match("/categories", { :controller => "categories", :action => "list", :via => "get" })
+  #match("/categories/:id_to_display", { :controller => "categories", :action => "details", :via => "get" })
 
   # UPDATE
-  match("/existing_category_form/:id_to_prefill", { :controller => "categories", :action => "prefilled_form", :via => "get" })
-  match("/update_category_record/:id_to_modify", { :controller => "categories", :action => "save_edits", :via => "post" })
+  #match("/existing_category_form/:id_to_prefill", { :controller => "categories", :action => "prefilled_form", :via => "get" })
+  #match("/update_category_record/:id_to_modify", { :controller => "categories", :action => "save_edits", :via => "post" })
 
   # DELETE
-  match("/delete_category/:id_to_remove", { :controller => "categories", :action => "remove_row", :via => "get" })
+  #match("/delete_category/:id_to_remove", { :controller => "categories", :action => "remove_row", :via => "get" })
 
   #------------------------------
 
   # Routes for the Ingredient resource:
 
   # CREATE
-  match("/new_ingredient_form", { :controller => "ingredients", :action => "blank_form", :via => "get" })
-  match("/insert_ingredient_record", { :controller => "ingredients", :action => "save_new_info", :via => "post" })
+  #match("/new_ingredient_form", { :controller => "ingredients", :action => "blank_form", :via => "get" })
+  #match("/insert_ingredient_record", { :controller => "ingredients", :action => "save_new_info", :via => "post" })
 
   # READ
-  match("/ingredients", { :controller => "ingredients", :action => "list", :via => "get" })
-  match("/ingredients/:id_to_display", { :controller => "ingredients", :action => "details", :via => "get" })
+  #match("/ingredients", { :controller => "ingredients", :action => "list", :via => "get" })
+  #match("/ingredients/:id_to_display", { :controller => "ingredients", :action => "details", :via => "get" })
 
   # UPDATE
-  match("/existing_ingredient_form/:id_to_prefill", { :controller => "ingredients", :action => "prefilled_form", :via => "get" })
-  match("/update_ingredient_record/:id_to_modify", { :controller => "ingredients", :action => "save_edits", :via => "post" })
+  #match("/existing_ingredient_form/:id_to_prefill", { :controller => "ingredients", :action => "prefilled_form", :via => "get" })
+  #match("/update_ingredient_record/:id_to_modify", { :controller => "ingredients", :action => "save_edits", :via => "post" })
 
   # DELETE
-  match("/delete_ingredient/:id_to_remove", { :controller => "ingredients", :action => "remove_row", :via => "get" })
+  #match("/delete_ingredient/:id_to_remove", { :controller => "ingredients", :action => "remove_row", :via => "get" })
 
   #------------------------------
 

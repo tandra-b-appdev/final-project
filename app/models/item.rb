@@ -13,4 +13,5 @@
 #
 
 class Item < ApplicationRecord
+validates :recipe_id, :uniqueness => { :scope => [:ingredient_id] }
 end
