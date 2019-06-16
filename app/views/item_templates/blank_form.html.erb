@@ -28,7 +28,7 @@
     </label>
 
     <select id="measurement_units" name="measurement_units" >
-    <% @measurement_units.each do |a_unit| %>
+    <% @measurement_unit_list.each do |a_unit| %>
     <option value="<%= a_unit %>">
       <%= a_unit %>
     </option>
@@ -37,21 +37,23 @@
 
 
   <label for="ingredient">Ingredient</label>
-    <select id="ingredient" name="ingredient_id" >
+    <select id="ingredient" name="ingredient" >
     <% @ingredients.each do |an_ingredient| %>
     <option value="<%= an_ingredient.id %>">
       <%= an_ingredient.name %>
     </option>
     <% end %>
+    
     </select>
 
   <div>
     <label for="new_ingredient">
-      Not in our list?
+      Not in our list? Add it below.
     </label>
     <input type="text" id="new_ingredient" name="new_ingredient">
   </div>
-
+  
+  <input type="hidden" name= "recipe_id" value="<%= @recipe_id %>">
 
   <button>
     Save item

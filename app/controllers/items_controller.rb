@@ -14,24 +14,39 @@ class ItemsController < ApplicationController
   def blank_form
     @item = Item.new
     @ingredients = Ingredient.all.order({:name => :asc})
-    @measurement_units = Item.pluck(:measurement_units).uniq
+    @measurement_unit_list = Item.pluck(:measurement_units).uniq
     @recipe_name = Recipe.where({:id => @recipe_id}).pluck(:name).first
+    @recipe_id = Recipe.where({:id => @recipe_id}).pluck(:id).first
     render("item_templates/blank_form.html.erb")
   end
 
   def save_new_info
     @item = Item.new
-
-    @item.essential_flag = params.fetch("essential_flag", false)
+    @item.essential_flag = "No"
+    @item.essential_flag = "Yes" if params.fetch("essential_flag", false)
     @item.quantity = params.fetch("quantity")
     @item.measurement_units = params.fetch("measurement_units")
     @item.recipe_id = params.fetch("recipe_id")
-    @item.ingredient_id = params.fetch("ingredient_id")
-
+    
+    existing_ingredient = params.fetch("ingredient")
+    new_ingredient = params.fetch("new_ingredient")
+    
+    if new_ingredient.nil?
+      ingredient_name = existing_ingredient
+      @item.ingredient_id = Ingredient.where({:name => ingredient_name})
+    else  
+      ingredient_name = new_ingredient
+      @ingredient = Ingredient.new
+      @ingredient.name = ingredient_name
+      @item.ingredient_id = Ingredient.where({:name => ingredient_name}).pluck(:id)
+      @ingredient.save
+    end 
+    
     if @item.valid?
       @item.save
+      p "ITEM SAVED"
 
-      redirect_to("/items", { :notice => "Item created successfully." })
+      redirect_to("/my_recipes/"+@recipe_id.to_s, { :notice => "Item created successfully." })
     else
       render("item_templates/blank_form.html.erb")
     end
