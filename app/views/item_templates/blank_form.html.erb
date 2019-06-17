@@ -1,5 +1,5 @@
 <h1>
-  Add a new item to <%= @recipe_name %> recipe
+  Add a new item to <%= @recipe_name %>
 </h1>
 
 <hr>
@@ -28,19 +28,18 @@
     </label>
 
     <select id="measurement_units" name="measurement_units" >
-    <% @measurement_unit_list.each do |a_unit| %>
+    <% @measurement_units.each do |a_unit| %>
     <option value="<%= a_unit %>">
       <%= a_unit %>
     </option>
     <% end %>
     </select>
 
-
-  <label for="ingredient">Ingredient</label>
+   <label for="ingredient">Ingredient</label>      
     <select id="ingredient" name="ingredient" >
     <% @ingredients.each do |an_ingredient| %>
-    <option value="<%= an_ingredient.id %>">
-      <%= an_ingredient.name %>
+    <option value="<%= an_ingredient %>">      
+      <%= an_ingredient %>
     </option>
     <% end %>
     
@@ -48,7 +47,7 @@
 
   <div>
     <label for="new_ingredient">
-      Not in our list? Add it below.
+      Ingredient
     </label>
     <input type="text" id="new_ingredient" name="new_ingredient">
   </div>

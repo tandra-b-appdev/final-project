@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   #match("/items/:id_to_display", { :controller => "items", :action => "details", :via => "get" })
 
   # UPDATE
-  match("/existing_item_form/:id_to_prefill", { :controller => "items", :action => "prefilled_form", :via => "get" })
-  match("/update_item_record/:id_to_modify", { :controller => "items", :action => "save_edits", :via => "post" })
+  #match("/existing_item_form/:id_to_prefill", { :controller => "items", :action => "prefilled_form", :via => "get" })
+  #match("/update_item_record/:id_to_modify", { :controller => "items", :action => "save_edits", :via => "post" })
 
   # DELETE
   match("/delete_item/:id_to_remove", { :controller => "items", :action => "remove_row", :via => "get" })
